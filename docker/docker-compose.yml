@@ -1,17 +1,25 @@
 services:
-  app:
+  
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    # mount prometheus config file
+    volumes:
+      - ../docker/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  # grafana:
+  #   hostname: grafana
+  #   image: grafana/grafana
+  #   ports:
+  #    - 3000:3000
+
+  pyprom:
     build:
       context: ..
       dockerfile: ./app/Dockerfile
     ports:
       - 5000:5000
-    environment:
-      - PYTHONUNBUFFERED=1
     depends_on:
       - prometheus
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - 9090:9090
-    volumes:
-      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml
+

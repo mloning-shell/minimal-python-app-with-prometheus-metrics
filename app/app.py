@@ -7,7 +7,7 @@ import random
 # Create app for allowing prometheus server to pull/scrape metrics from app via HTTP requests
 app = FastAPI(debug=False)
 
-# Add prometheus asgi middleware to route /metrics requests
+# Add Prometheus ASGI middleware to route /metrics requests
 metrics_app = make_asgi_app()
 app.mount("/metrics", metrics_app)
 

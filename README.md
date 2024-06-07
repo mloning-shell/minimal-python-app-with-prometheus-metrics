@@ -15,7 +15,7 @@ This app has a simple `/hello` endpoint and a `/metrics` endpoint to allow Prome
 ## Run the app locally with Prometheus
 
 ```bash
-docker-compose --file docker/docker-compose.yml up --build
+docker-compose --file ./docker/docker-compose.yml up --build
 ```
 
 * For the app, go to: `http://localhost:5000/docs/`
@@ -25,5 +25,13 @@ We use `docker-compose` to run our app and Prometheus in a container network.
 In `prometheus.yml`, we configure Prometheus to pull metrics from our app, using the app name and port from the `docker-compose.yml` file as a target.
 
 ## Run the app on Kubernetes with Prometheus
+
+* install loki-stack Helm chart in k8s
+* build and push app Docker image
+* install app in k8s
+* use port-forwarding to see app
+* use port-forwarding to see Prometheus UI
+
+We use annotations on our app in `deployment.yaml` to configure Prometheus to pull metrics from our app.
 
 TODO
