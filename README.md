@@ -32,6 +32,9 @@ In `prometheus.yml`, we configure Prometheus to pull metrics from our app, using
 * use port-forwarding to see app
 * use port-forwarding to see Prometheus UI
 
-We use annotations on our app in `deployment.yaml` to configure Prometheus to pull metrics from our app.
+We use [annotations](https://artifacthub.io/packages/helm/prometheus-community/prometheus#scraping-pod-metrics-via-annotations) on our app in `deployment.yaml` to configure Prometheus to pull metrics from our app.
 
-TODO
+## TODO
+
+- [ ] run multiple processes in app, all exposing metrics to /metrics endpoint
+- [ ] deploy to k8s
